@@ -1,73 +1,61 @@
 import React, { useState } from "react";
-import { GrAdd } from "react-icons/gr";
+import Item from "../components/Item";
+import DropWrapper from "../components/DropWrapper";
+import Col from "../components/Col";
+import { data, statuses } from "../data";
 
+import "./../index.css";
 const Test = () => {
-  const [tasks, setTasks] = useState([
-    {
-      // Generate Unique ID
-      id: `${Date.now()}${Math.floor(Math.random() * 100)}`,
-      task: "solidity",
-    },
-  ]);
+  const [items, setItems] = useState(data);
+
+  const onDrop = (item, monitor, status) => {
+    const mapping = statuses.find((si) => si.status === status);
+
+    setItems((prevState) => {
+      const newItems = prevState
+        .filter((i) => i.id !== item.id)
+        .concat({ ...item, status, icon: mapping.icon });
+      return [...newItems];
+    });
+  };
+
+  const moveItem = (dragIndex, hoverIndex) => {
+    const item = items[dragIndex];
+    setItems((prevState) => {
+      const newItems = prevState.filter(
+        (i, idx) => idx !== dragIndex
+      );
+      newItems.splice(hoverIndex, 0, item);
+      return [...newItems];
+    });
+  };
 
   return (
-    <div style={{ textAlign: "center" }}>
-      {tasks.map((p, index) => {
+    <div className={"row"}>
+      {statuses.map((s) => {
         return (
-          <div key={p.id}>
-            <input
-              onChange={(e) => {
-                const task = e.target.value;
-                setTasks((currentPeople) =>
-                  currentPeople.map((value, itemIndex) => {
-                    if (index === itemIndex) {
-                      // debugger;
-                      tasks[itemIndex].task = task;
-                      return value;
-                    }
-                    return value;
-                  })
-                );
-              }}
-              value={p.task}
-              placeholder="task"
-            />
-            {/* <button
-              onClick={() => {
-                setTasks((currentPeople) =>
-                  currentPeople.filter((x) => x.id !== p.id)
-                );
-              }}
-            >
-              x
-            </button> */}
+          <div key={s.id} className={"col-wrapper"}>
+            <h2 className={"col-header"}>
+              {s.status.toUpperCase()}
+            </h2>
+            <DropWrapper onDrop={onDrop} status={s.status}>
+              <Col>
+                {items
+                  .filter((i) => i.status === s.status)
+                  .map((i, idx) => (
+                    <Item
+                      key={i.id}
+                      item={i}
+                      index={idx}
+                      moveItem={moveItem}
+                      status={s}
+                    />
+                  ))}
+              </Col>
+            </DropWrapper>
           </div>
         );
       })}
-
-      <button
-        style={{
-          borderRadius: "50%",
-          padding: "5px",
-          marginTop: "10px",
-        }}
-        onClick={() => {
-          setTasks((currentPeople) => [
-            ...currentPeople,
-
-            {
-              // Generate Unique ID
-              id: `${Date.now()}${Math.floor(
-                Math.random() * 100
-              )}`,
-              task: "",
-            },
-          ]);
-        }}
-      >
-        <GrAdd />
-      </button>
-      {/* <div>{JSON.stringify(tasks, null, 2)}</div> */}
     </div>
   );
 };

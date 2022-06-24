@@ -1,8 +1,8 @@
 - {DONE} test how to let the users input array of 'prepare to study' items in Test component
 - {DONE} create landing page 
 - {DONE} add react-route-dom
-- {TODO} create InputArray component
-- {TODO} test how to add drag and drop in Test component
+- {DONE} create InputArray component
+- {DONE} test how to add drag and drop in Test component
 - {TODO} create task management page 
 - {TODO} add click event listener to 'start app' button
         note: when i user click on the button change the route to task
