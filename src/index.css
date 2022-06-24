@@ -199,3 +199,11 @@ select {
 .task-input {
   width: 93%;
 }
+
+.start-btn {
+  border-radius: 27%;
+  padding: 10px;
+  font-size: 40px;
+  border: 0.5rem solid;
+  background-color: #dcdcdc;
+}

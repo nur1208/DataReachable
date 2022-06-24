@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 export const Landing = () => {
   return (
     <div
@@ -7,10 +7,12 @@ export const Landing = () => {
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        height: "100%",
+        height: "100vh",
       }}
     >
-      <button>Start app</button>
+      <Link to="task" className="start-btn">
+        Start app
+      </Link>
     </div>
   );
 };

@@ -9,10 +9,9 @@ function App() {
   return (
     <DndProvider backend={Backend}>
       <Routes>
-        <Route path="/about" element={<div>about</div>} />
-        <Route path="/users" element={<div>users</div>} />
+        <Route path="/Task" element={<TaskManagement />} />
         <Route path="/test" element={<TaskManagement />} />
-        <Route path="/" element={<div>Home</div>} />
+        <Route path="/" element={<Landing />} />
       </Routes>
     </DndProvider>
   );
