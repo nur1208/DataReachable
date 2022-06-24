@@ -3,6 +3,8 @@
 - {DONE} add react-route-dom
 - {DONE} create InputArray component
 - {DONE} test how to add drag and drop in Test component
+- {DONE} add InputArray functionality to Test component
 - {TODO} create task management page 
 - {TODO} add click event listener to 'start app' button
         note: when i user click on the button change the route to task
+- {TODO} fix create a new task when droping a task on 'create task' button        

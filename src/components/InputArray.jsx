@@ -18,8 +18,8 @@ const InputArray = () => {
             <input
               onChange={(e) => {
                 const task = e.target.value;
-                setTasks((currentPeople) =>
-                  currentPeople.map((value, itemIndex) => {
+                setTasks((currentTasks) =>
+                  currentTasks.map((value, itemIndex) => {
                     if (index === itemIndex) {
                       // debugger;
                       tasks[itemIndex].task = task;

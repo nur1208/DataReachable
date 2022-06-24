@@ -90,14 +90,14 @@ select {
 .item {
   font-size: 15px;
   margin-bottom: 10px;
-  padding: 10px;
+  padding: 20px 10px 10px 10px;
   border-radius: 5px;
   z-index: 1;
   background-color: white;
 }
 
 .item:hover {
-  cursor: pointer;
+  cursor: grab;
 }
 
 .item-title {
@@ -132,7 +132,7 @@ select {
 }
 
 .col-header {
-  font-size: 20px;
+  font-size: 15px;
   font-weight: 600;
   margin-bottom: 20px;
   margin-top: 0;
@@ -194,4 +194,8 @@ select {
 
 .close-btn:hover {
   background-color: #dcdcdc;
+}
+
+.task-input {
+  width: 93%;
 }

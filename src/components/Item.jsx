@@ -1,8 +1,9 @@
 import React, { Fragment, useState, useRef } from "react";
 import { useDrag, useDrop } from "react-dnd";
+import { STATUSES } from "../data";
 import { ITEM_TYPE } from "../data/types";
 
-const Item = ({ item, index, moveItem, status }) => {
+const Item = ({ updateTask, item, index, moveItem, status }) => {
   const ref = useRef(null);
 
   const [, drop] = useDrop({
@@ -63,14 +64,37 @@ const Item = ({ item, index, moveItem, status }) => {
         ref={ref}
         style={{ opacity: isDragging ? 0 : 1 }}
         className={"item"}
-        onClick={onOpen}
       >
-        <div
-          className={"color-bar"}
-          style={{ backgroundColor: status.color }}
-        />
-        {/* <p className={"item-title"}>{item.content}</p> */}
-        <p className={"item-status"}>{item.icon}</p>
+        <div key={item.id}>
+          <input
+            className="task-input"
+            onChange={(e) => {
+              const task = e.target.value;
+              updateTask(index, task);
+              //   setTasks((currentTasks) =>
+              //     currentTasks.map((value, itemIndex) => {
+              //       if (index === itemIndex) {
+              //         // debugger;
+              //         tasks[itemIndex].task = task;
+              //         return value;
+              //       }
+              //       return value;
+              //     })
+              //   );
+            }}
+            value={item.task}
+            placeholder="task"
+          />
+          {/* <button
+              onClick={() => {
+                setTasks((currentPeople) =>
+                  currentPeople.filter((x) => x.id !== p.id)
+                );
+              }}
+            >
+              x
+            </button> */}
+        </div>
       </div>
     </Fragment>
   );
