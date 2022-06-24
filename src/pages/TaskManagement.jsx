@@ -6,8 +6,7 @@ import { data, STATUSES, statuses } from "../data";
 import { GrAdd } from "react-icons/gr";
 
 import "./../index.css";
-const Test = () => {
-  const [items, setItems] = useState(data);
+const TaskManagement = () => {
   const [tasks, setTasks] = useState([
     {
       // Generate Unique ID
@@ -29,7 +28,7 @@ const Test = () => {
   };
 
   const moveItem = (dragIndex, hoverIndex) => {
-    const item = items[dragIndex];
+    const item = tasks[dragIndex];
     setTasks((prevState) => {
       const newItems = prevState.filter(
         (i, idx) => idx !== dragIndex
@@ -116,4 +115,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default TaskManagement;
