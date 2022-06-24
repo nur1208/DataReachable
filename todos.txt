@@ -1,3 +1,3 @@
-- {TODO} let the users input array of 'prepare to study' items in Test component
-- {TODO} create landing page 
+- {DONE} test how to let the users input array of 'prepare to study' items in Test component
+- {DONE} create landing page 
 - {TODO} add react-routes
