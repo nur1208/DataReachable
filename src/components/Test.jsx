@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Item from "../components/Item";
+import Item from "./Item/Item";
 import DropWrapper from "../components/DropWrapper";
 import Col from "../components/Col";
 import { data, STATUSES, statuses } from "../data";

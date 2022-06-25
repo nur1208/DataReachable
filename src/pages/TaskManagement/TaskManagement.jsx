@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Item from "../../components/Item";
+import Item from "../../components/Item/Item";
 import DropWrapper from "../../components/DropWrapper";
 import Col from "../../components/Col";
 import { data, STATUSES, statuses } from "../../data";
@@ -59,6 +59,12 @@ const TaskManagement = () => {
     );
   };
 
+  const deleteTask = (itemId) => {
+    setTasks((currentTask) =>
+      currentTask.filter((x) => x.id !== itemId)
+    );
+  };
+
   return (
     <div className={"row"}>
       {statuses.map((s) => {
@@ -70,6 +76,7 @@ const TaskManagement = () => {
             updateTask={updateTask}
             moveItem={moveItem}
             setTasks={setTasks}
+            deleteTask={deleteTask}
           />
         );
       })}

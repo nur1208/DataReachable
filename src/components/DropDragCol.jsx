@@ -8,7 +8,7 @@ import {
 } from "../pages/TaskManagement/TaskManagement.styles";
 import Col from "./Col";
 import DropWrapper from "./DropWrapper";
-import Item from "./Item";
+import Item from "./Item/Item";
 import { GrAdd } from "react-icons/gr";
 import { useDrop } from "react-dnd";
 import { ITEM_TYPE } from "../data/types";
@@ -20,6 +20,7 @@ export const DropDragCol = ({
   updateTask,
   moveItem,
   setTasks,
+  deleteTask,
 }) => {
   const [{ isOver }, drop] = useDrop({
     accept: ITEM_TYPE,
@@ -58,6 +59,7 @@ export const DropDragCol = ({
                 index={idx}
                 moveItem={moveItem}
                 status={s}
+                deleteTask={deleteTask}
               />
             ))}
           {s.status === STATUSES.PREPARE_TO_STUDY && (
