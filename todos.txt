@@ -9,7 +9,7 @@
         note: when i user click on the button change the route to task
 - {DONE} fix unable to edit tasks after draging and droping
 - {DONE} let the users drag and drop tasks to learing.. or complete when the task is at 'Prepare to study' status
-- {TODO} add Styled-components
+- {DONE} add Styled-components
         note: Styled-components leverage a mixture of JavaScript and CSS using a technique called CSS-in-JS so it will be easy to create dynamic styles.
             I use Styled-components instead of SCSS/SASS. 
 - {TODO} add 'when the dragged item enters the drop zone, the section's border will be change to different color' functionality

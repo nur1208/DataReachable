@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import Item from "../components/Item";
-import DropWrapper from "../components/DropWrapper";
-import Col from "../components/Col";
-import { data, STATUSES, statuses } from "../data";
+import Item from "../../components/Item";
+import DropWrapper from "../../components/DropWrapper";
+import Col from "../../components/Col";
+import { data, STATUSES, statuses } from "../../data";
 import { GrAdd } from "react-icons/gr";
 
-import "./../index.css";
+import "./../../index.css";
+import {
+  AddTaskBtn,
+  AddTaskBtnWrapper,
+} from "./TaskManagement.styles";
 const TaskManagement = () => {
   const [tasks, setTasks] = useState([
     {
@@ -74,14 +78,8 @@ const TaskManagement = () => {
                     />
                   ))}
                 {s.status === STATUSES.PREPARE_TO_STUDY && (
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                    }}
-                  >
-                    <button
+                  <AddTaskBtnWrapper>
+                    <AddTaskBtn
                       style={{
                         borderRadius: "50%",
                         padding: "5px",
@@ -103,8 +101,8 @@ const TaskManagement = () => {
                       }}
                     >
                       <GrAdd />
-                    </button>
-                  </div>
+                    </AddTaskBtn>
+                  </AddTaskBtnWrapper>
                 )}
               </Col>
             </DropWrapper>
