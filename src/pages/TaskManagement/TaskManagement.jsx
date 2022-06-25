@@ -8,13 +8,17 @@ import {
   InnerWrapperStyled,
   WrapperStyeld,
 } from "./TaskManagement.styles";
+import { Loading } from "../../components/Loading";
 const TaskManagement = () => {
   const [
-    tasks,
+    { tasks, loading },
     taskFunctions,
     // { updateTask, deleteTask, onDrop, moveItem, addTask },
   ] = useTaskManagement();
-  return (
+
+  return loading ? (
+    <Loading type="spin" />
+  ) : (
     <WrapperStyeld>
       <InnerWrapperStyled>
         {statuses.map((s) => {

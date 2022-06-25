@@ -1,5 +1,6 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { statuses, STATUSES } from "../data";
+import TaskEndpoints from "../services/Task";
 
 export const useTaskManagement = () => {
   const [tasks, setTasks] = useState([
@@ -10,6 +11,15 @@ export const useTaskManagement = () => {
       status: STATUSES.PREPARE_TO_STUDY,
     },
   ]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    (async () => {
+      const { data } = await TaskEndpoints.get();
+      console.log({ data });
+      setLoading(false);
+      setTasks(data.articles);
+    })();
+  }, []);
 
   const onDrop = (item, monitor, status) => {
     const mapping = statuses.find((si) => si.status === status);
@@ -65,7 +75,7 @@ export const useTaskManagement = () => {
     ]);
   };
   return [
-    tasks,
+    {tasks, loading},
     { updateTask, deleteTask, onDrop, moveItem, addTask },
   ];
 };
