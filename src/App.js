@@ -9,8 +9,8 @@ function App() {
   return (
     <DndProvider backend={Backend}>
       <Routes>
-        <Route path="/Task" element={<TaskManagement />} />
         <Route path="/test" element={<TaskManagement />} />
+        <Route path="/task" element={<TaskManagement />} />
         <Route path="/" element={<Landing />} />
       </Routes>
     </DndProvider>

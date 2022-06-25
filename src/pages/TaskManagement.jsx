@@ -38,10 +38,10 @@ const TaskManagement = () => {
     });
   };
 
-  const updateTask = (index, updateTask) => {
+  const updateTask = (itemId, updateTask) => {
     setTasks((currentTasks) =>
       currentTasks.map((value, itemIndex) => {
-        if (index === itemIndex) {
+        if (itemId === value.id) {
           // debugger;
           tasks[itemIndex].task = updateTask;
           return value;

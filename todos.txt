@@ -5,6 +5,23 @@
 - {DONE} test how to add drag and drop in Test component
 - {DONE} add InputArray functionality to Test component
 - {DONE} create task management page 
-- {TODO} add click event listener to 'start app' button
+- {DONE} add click event listener to 'start app' button
         note: when i user click on the button change the route to task
-- {TODO} fix create a new task when droping a task on 'create task' button        
+- {DONE} fix unable to edit tasks after draging and droping
+- {DONE} let the users drag and drop tasks to learing.. or complete when the task is at 'Prepare to study' status
+- {TODO} add Styled-components
+        note: Styled-components leverage a mixture of JavaScript and CSS using a technique called CSS-in-JS so it will be easy to create dynamic styles.
+            I use Styled-components instead of SCSS/SASS. 
+- {TODO} add 'when the dragged item enters the drop zone, the section's border will be change to different color' functionality
+- {TODO} add 'when the user's mouse move over the task, a delete icon will be show at the top right on th task'  functionality
+not important now:        
+- {TODO} fix create a new task when droping a task on 'create task' button
+- {TODO} increase the columns size if there are more tasks.        
+
+question:
+我不明白文档中的两件事：2.2 mock data and third Bonus. what is Weather data?
+- I don't understand two things in the document: 2.2 mock data and third Bonus. what is Weather data?
+- Can users update tasks while learning or complete states?
+- Can users drag and drop tasks from "Ready to Learn" to "complete" without going through the "Learning" state?
+- Can I create a different style than images in the document?
+- Can I add Voice assistant to the project?

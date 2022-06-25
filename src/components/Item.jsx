@@ -25,12 +25,15 @@ const Item = ({ updateTask, item, index, moveItem, status }) => {
       const mousePosition = monitor.getClientOffset();
       const hoverClientY = mousePosition.y - hoveredRect.top;
 
+      // moving item down
       if (
         dragIndex < hoverIndex &&
         hoverClientY < hoverMiddleY
       ) {
         return;
       }
+
+      // moving item up
 
       if (
         dragIndex > hoverIndex &&
@@ -50,12 +53,6 @@ const Item = ({ updateTask, item, index, moveItem, status }) => {
     }),
   });
 
-  const [show, setShow] = useState(false);
-
-  const onOpen = () => setShow(true);
-
-  const onClose = () => setShow(false);
-
   drag(drop(ref));
 
   return (
@@ -70,7 +67,7 @@ const Item = ({ updateTask, item, index, moveItem, status }) => {
             className="task-input"
             onChange={(e) => {
               const task = e.target.value;
-              updateTask(index, task);
+              updateTask(item.id, task);
               //   setTasks((currentTasks) =>
               //     currentTasks.map((value, itemIndex) => {
               //       if (index === itemIndex) {
