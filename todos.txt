@@ -16,9 +16,9 @@
 - {DONE} add 'when the user's mouse move over the task, a delete icon will be show at the top right on th task'  functionality
 - {DONE} update readme.md file
 - {DONE} create better file structure 
-
+- {DONE} make the app more responsive using flex: wrap
 not important now:        
-- {TODO} increase the columns size if there are more tasks.        
+- {TODO} increase tasks box height if there are more tasks.        
 
 question:
 我不明白文档中的两件事：2.2 mock data and third Bonus. what is Weather data?

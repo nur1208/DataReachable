@@ -4,6 +4,7 @@ import "./../../index.css";
 
 import { DropDragCustomized } from "../../components/DropDragCustomized/DropDragCustomized";
 import { useTaskManagement } from "../../hooks/useTaskManagement";
+import { WrapperStyled } from "./TaskManagement.styles";
 const TaskManagement = () => {
   const [
     tasks,
@@ -11,7 +12,7 @@ const TaskManagement = () => {
     // { updateTask, deleteTask, onDrop, moveItem, addTask },
   ] = useTaskManagement();
   return (
-    <div className={"row"}>
+    <WrapperStyled>
       {statuses.map((s) => {
         return (
           <DropDragCustomized
@@ -21,7 +22,7 @@ const TaskManagement = () => {
           />
         );
       })}
-    </div>
+    </WrapperStyled>
   );
 };
 

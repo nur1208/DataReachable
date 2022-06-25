@@ -11,7 +11,7 @@ export const MainLadingWrapper = styled.div`
 export const StartApp = styled(Link)`
   border-radius: 27%;
   padding: 10px;
-  font-size: 40px;
+  font-size: 4rem;
   border: 0.5rem solid;
   background-color: #dcdcdc;
 `;

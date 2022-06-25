@@ -1,6 +1,16 @@
 import styled from "styled-components";
-const BACKGROUND_COLOR = "#f5eaea";
-const PRIMARY_COLOR = "rgb(62, 100, 255)";
+
+export const WrapperStyled = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  height: 100vh;
+  @media screen and (max-width: 650px) {
+    height: 100%;
+  }
+`;
 
 export const DropInnerWrapper = styled.div`
   flex: 1 25%;

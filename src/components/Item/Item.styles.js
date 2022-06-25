@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const ItemWrapperStyled = styled.div`
-  font-size: 15px;
+  font-size: 1rem;
   margin-bottom: 10px;
   padding: 20px 10px 10px 10px;
   border-radius: 5px;

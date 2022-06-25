@@ -5,7 +5,7 @@ import {
 } from "../../data/cssColor";
 
 export const ColHeaderStyeld = styled.h2`
-  font-size: 15px;
+  font-size: 1rem;
   font-weight: 600;
   margin-bottom: 20px;
   margin-top: 0;
