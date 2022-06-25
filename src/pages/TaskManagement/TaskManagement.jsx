@@ -9,7 +9,10 @@ import "./../../index.css";
 import {
   AddTaskBtn,
   AddTaskBtnWrapper,
+  DropMainWrapper,
 } from "./TaskManagement.styles";
+import { useHover } from "../../hooks/useHover";
+import { DropDragCol } from "../../components/DropDragCol";
 const TaskManagement = () => {
   const [tasks, setTasks] = useState([
     {
@@ -20,6 +23,7 @@ const TaskManagement = () => {
     },
   ]);
 
+  const [hoverRef, isHovered] = useHover();
   const onDrop = (item, monitor, status) => {
     const mapping = statuses.find((si) => si.status === status);
 
@@ -59,54 +63,14 @@ const TaskManagement = () => {
     <div className={"row"}>
       {statuses.map((s) => {
         return (
-          <div key={s.id} className={"col-wrapper"}>
-            <h2 className={"col-header"}>
-              {s.status.toUpperCase()}
-            </h2>
-            <DropWrapper onDrop={onDrop} status={s.status}>
-              <Col>
-                {tasks
-                  .filter((i) => i.status === s.status)
-                  .map((i, idx) => (
-                    <Item
-                      key={i.id}
-                      item={i}
-                      updateTask={updateTask}
-                      index={idx}
-                      moveItem={moveItem}
-                      status={s}
-                    />
-                  ))}
-                {s.status === STATUSES.PREPARE_TO_STUDY && (
-                  <AddTaskBtnWrapper>
-                    <AddTaskBtn
-                      style={{
-                        borderRadius: "50%",
-                        padding: "5px",
-                        marginTop: "10px",
-                      }}
-                      onClick={() => {
-                        setTasks((currentPeople) => [
-                          ...currentPeople,
-
-                          {
-                            // Generate Unique ID
-                            id: `${Date.now()}${Math.floor(
-                              Math.random() * 100
-                            )}`,
-                            task: "",
-                            status: STATUSES.PREPARE_TO_STUDY,
-                          },
-                        ]);
-                      }}
-                    >
-                      <GrAdd />
-                    </AddTaskBtn>
-                  </AddTaskBtnWrapper>
-                )}
-              </Col>
-            </DropWrapper>
-          </div>
+          <DropDragCol
+            s={s}
+            onDrop={onDrop}
+            tasks={tasks}
+            updateTask={updateTask}
+            moveItem={moveItem}
+            setTasks={setTasks}
+          />
         );
       })}
     </div>

@@ -12,7 +12,7 @@
 - {DONE} add Styled-components
         note: Styled-components leverage a mixture of JavaScript and CSS using a technique called CSS-in-JS so it will be easy to create dynamic styles.
             I use Styled-components instead of SCSS/SASS. 
-- {TODO} add 'when the dragged item enters the drop zone, the section's border will be change to different color' functionality
+- {DONE} add 'when the dragged item enters the drop zone, the section's border will be change to different color' functionality
 - {TODO} add 'when the user's mouse move over the task, a delete icon will be show at the top right on th task'  functionality
 not important now:        
 - {TODO} fix create a new task when droping a task on 'create task' button
