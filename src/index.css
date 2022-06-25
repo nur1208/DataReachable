@@ -195,7 +195,3 @@ select {
 .close-btn:hover {
   background-color: #dcdcdc;
 }
-
-.task-input {
-  width: 93%;
-}

@@ -8,7 +8,11 @@ import { useDrag, useDrop } from "react-dnd";
 import { STATUSES } from "../../data";
 import { ITEM_TYPE } from "../../data/types";
 import { useHover } from "../../hooks/useHover";
-import { CloseBtn, InputTaskWrapper } from "./Item.styles";
+import {
+  CloseBtnStyeld,
+  InputTaskWrapperStyled,
+  ItemWrapperStyled,
+} from "./Item.styles";
 
 const Item = ({
   updateTask,
@@ -76,20 +80,15 @@ const Item = ({
 
   return (
     <Fragment>
-      <div
-        ref={dragRef}
-        style={{ opacity: isDragging ? 0 : 1 }}
-        className={"item"}
-      >
+      <ItemWrapperStyled ref={dragRef} isDragging={isDragging}>
         <div key={item.id} style={{ position: "relative" }}>
           {isHoverd && (
-            <CloseBtn onClick={() => deleteTask(item.id)}>
+            <CloseBtnStyeld onClick={() => deleteTask(item.id)}>
               x
-            </CloseBtn>
+            </CloseBtnStyeld>
           )}
-          <InputTaskWrapper>
+          <InputTaskWrapperStyled>
             <input
-              className="task-input"
               onChange={(e) => {
                 const task = e.target.value;
                 updateTask(item.id, task);
@@ -97,9 +96,9 @@ const Item = ({
               value={item.task}
               placeholder="task"
             />
-          </InputTaskWrapper>
+          </InputTaskWrapperStyled>
         </div>
-      </div>
+      </ItemWrapperStyled>
     </Fragment>
   );
 };

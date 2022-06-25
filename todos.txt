@@ -15,6 +15,7 @@
 - {DONE} add 'when the dragged item enters the drop zone, the section's border will be change to different color' functionality
 - {DONE} add 'when the user's mouse move over the task, a delete icon will be show at the top right on th task'  functionality
 - {DONE} update readme.md file
+- {DONE} create better file structure 
 
 not important now:        
 - {TODO} increase the columns size if there are more tasks.        
@@ -26,3 +27,15 @@ question:
 - Can users drag and drop tasks from "Ready to Learn" to "complete" without going through the "Learning" state?
 - Can I create a different style than images in the document?
 - Can I add Voice assistant to the project?
+
+    // canDrop: (item, monitor) => {
+    //   const itemIndex = statuses.findIndex(
+    //     (si) => si.status === item.status
+    //   );
+    //   const statusIndex = statuses.findIndex(
+    //     (si) => si.status === status
+    //   );
+    //   return [itemIndex + 1, itemIndex - 1, itemIndex].includes(
+    //     statusIndex
+    //   );
+    // },
