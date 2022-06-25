@@ -18,6 +18,7 @@
 - {DONE} create better file structure 
 - {DONE} make the app more responsive using flex: wrap
 - {DONE} increase tasks box height if there are more tasks than four.        
+- {DONE} create backend for this project (get task and post task endpoints)
 not important now:        
 
 question:

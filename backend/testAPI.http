@@ -1,0 +1,3 @@
+@localURL = http://localhost:3354
+
+GET http://localhost:3354 HTTP/1.1
