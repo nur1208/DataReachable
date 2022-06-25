@@ -17,8 +17,8 @@
 - {DONE} update readme.md file
 - {DONE} create better file structure 
 - {DONE} make the app more responsive using flex: wrap
+- {DONE} increase tasks box height if there are more tasks than four.        
 not important now:        
-- {TODO} increase tasks box height if there are more tasks.        
 
 question:
 我不明白文档中的两件事：2.2 mock data and third Bonus. what is Weather data?

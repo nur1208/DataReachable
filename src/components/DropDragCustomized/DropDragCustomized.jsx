@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { STATUSES } from "../../data";
 
 import Col from "../Col/Col";
@@ -22,7 +22,10 @@ export const DropDragCustomized = ({
   moveItem,
   addTask,
   deleteTask,
+  setCurrentTasksPerStatus,
+  currentTasksPerStatus,
 }) => {
+  const [numOfItems, setNumOfItems] = useState(0);
   const [{ isOver }, drop] = useDrop({
     accept: ITEM_TYPE,
     drop: (item, monitor) => {
@@ -32,9 +35,19 @@ export const DropDragCustomized = ({
       isOver: monitor.isOver(),
     }),
   });
+  //
+  useEffect(() => {
+    setNumOfItems(
+      tasks.filter((i) => i.status === status.status).length
+    );
+  }, [tasks]);
 
   return (
-    <DropMainWrapperStyeld key={status.id} isOver={isOver}>
+    <DropMainWrapperStyeld
+      key={status.id}
+      isOver={isOver}
+      numOfItems={numOfItems}
+    >
       <ColHeaderStyeld>
         {status.status.toUpperCase()}
       </ColHeaderStyeld>
@@ -51,6 +64,9 @@ export const DropDragCustomized = ({
                 moveItem={moveItem}
                 status={status}
                 deleteTask={deleteTask}
+                setCurrentTasksPerStatus={
+                  setCurrentTasksPerStatus
+                }
               />
             ))}
           {status.status === STATUSES.PREPARE_TO_STUDY && (

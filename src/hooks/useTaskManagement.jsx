@@ -33,7 +33,7 @@ export const useTaskManagement = () => {
     });
   };
 
-  const updateTask = (itemId, updatedTask) => {
+  const updateTask = (itemId, updatedTask, index) => {
     setTasks((currentTasks) =>
       currentTasks.map((value, itemIndex) => {
         if (itemId === value.id) {

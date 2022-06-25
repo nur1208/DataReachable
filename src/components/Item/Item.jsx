@@ -20,6 +20,7 @@ const Item = ({
   index,
   moveItem,
   status,
+  setCurrentTasksPerStatus,
   deleteTask,
 }) => {
   const dragRef = useRef(null);
@@ -91,7 +92,7 @@ const Item = ({
             <input
               onChange={(e) => {
                 const task = e.target.value;
-                updateTask(item.id, task);
+                updateTask(item.id, task, index);
               }}
               value={item.task}
               placeholder="task"

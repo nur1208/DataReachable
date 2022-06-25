@@ -28,6 +28,9 @@ export const DropMainWrapperStyeld = styled.div`
     return isOver && `border: 0.15rem solid ${PRIMARY_COLOR};`;
   }}
 
+  ${({ numOfItems }) =>
+    numOfItems >= 5 &&
+    `height:${400 + (numOfItems - 4) * 60}px;`}
   display: flex;
   flex-direction: column;
   margin: 20px;
