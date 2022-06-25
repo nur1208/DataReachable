@@ -26,7 +26,40 @@ export const getTasks = async (req, res) => {
     res.json({
       status: "success",
       resultLength: tasks.length,
-      articles: tasks,
+      articles: tasks.map((task) => ({
+        ...task._doc,
+        id: task._id,
+      })),
+    });
+  } catch (error) {
+    console.log({ error });
+    res.status(500).json({ message: "server error" });
+  }
+};
+
+const filterObj = (obj, ...allowedFields) => {
+  const newObj = {};
+  Object.keys(obj).forEach((el) => {
+    if (allowedFields.includes(el)) {
+      newObj[el] = obj[el];
+    }
+  });
+
+  return newObj;
+};
+
+export const updateTasks = async (req, res) => {
+  const filteredBody = filterObj(req.body, "task", "status");
+  try {
+    const updatedTask = await TaskModel.findByIdAndUpdate(
+      req.body.id,
+      filteredBody,
+      { new: true }
+    );
+
+    res.json({
+      status: "success",
+      article: { ...updatedTask._doc, id: updatedTask._id },
     });
   } catch (error) {
     console.log({ error });

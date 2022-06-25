@@ -19,6 +19,7 @@
 - {DONE} make the app more responsive using flex: wrap
 - {DONE} increase tasks box height if there are more tasks than four.        
 - {DONE} create backend for this project (get task and post task endpoints)
+- {DONE} create update task endpoint
 not important now:        
 
 question:
