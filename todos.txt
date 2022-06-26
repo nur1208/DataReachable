@@ -5,6 +5,51 @@
 - {DONE} test how to add drag and drop in Test component
 - {DONE} add InputArray functionality to Test component
 - {DONE} create task management page 
-- {TODO} add click event listener to 'start app' button
+- {DONE} add click event listener to 'start app' button
         note: when i user click on the button change the route to task
-- {TODO} fix create a new task when droping a task on 'create task' button        
+- {DONE} fix unable to edit tasks after draging and droping
+- {DONE} let the users drag and drop tasks to learing.. or complete when the task is at 'Prepare to study' status
+- {DONE} add Styled-components
+        note: Styled-components leverage a mixture of JavaScript and CSS using a technique called CSS-in-JS so it will be easy to create dynamic styles.
+            I use Styled-components instead of SCSS/SASS. 
+- {DONE} add 'when the dragged item enters the drop zone, the section's border will be change to different color' functionality
+- {DONE} add 'when the user's mouse move over the task, a delete icon will be show at the top right on th task'  functionality
+- {DONE} update readme.md file
+- {DONE} create better file structure 
+- {DONE} make the app more responsive using flex: wrap
+- {DONE} increase tasks box height if there are more tasks than four.        
+- {DONE} create backend for this project (get task and post task endpoints)
+- {DONE} create update task endpoint
+- {DONE} use get task endpoint in the frontend and create loading component
+- {DONE} use post task endpoint in the frontend
+- {DONE} use udpate task endpoint in the frontend
+        - {DONE} Update an item in the backend after dropping it in a new state
+        - {DONE} Update an item in the backend while typing a new task
+- {DONE} fix an error in addTask function. (new created item doesn't' have an id)
+- {DONE} create delete task endpoint
+- {DONE} use delete task endpoint in the frontend
+- {DONE} add Notification component and other files from my old project
+- {DONE} Test Notification component in Test component
+- {DONE} Show if user is online or offline
+- {TODO} update readme file
+not important now:        
+
+question:
+我不明白文档中的两件事：2.2 mock data and third Bonus. what is Weather data?
+- I don't understand two things in the document: 2.2 mock data and third Bonus. what is Weather data?
+- Can users update tasks while learning or complete states?
+- Can users drag and drop tasks from "Ready to Learn" to "complete" without going through the "Learning" state?
+- Can I create a different style than images in the document?
+- Can I add Voice assistant to the project?
+
+    // canDrop: (item, monitor) => {
+    //   const itemIndex = statuses.findIndex(
+    //     (si) => si.status === item.status
+    //   );
+    //   const statusIndex = statuses.findIndex(
+    //     (si) => si.status === status
+    //   );
+    //   return [itemIndex + 1, itemIndex - 1, itemIndex].includes(
+    //     statusIndex
+    //   );
+    // },
