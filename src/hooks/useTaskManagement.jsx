@@ -16,7 +16,6 @@ export const useTaskManagement = () => {
   useEffect(() => {
     (async () => {
       const { data } = await TaskEndpoints.get();
-      console.log({ data });
       setLoading(false);
       setTasks(data.articles);
     })();
@@ -59,6 +58,8 @@ export const useTaskManagement = () => {
         return value;
       })
     );
+    // Update an item in the backend while typing a new task
+    TaskEndpoints.put({ id: itemId, task: updatedTask });
   };
 
   const deleteTask = (itemId) => {

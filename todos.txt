@@ -23,6 +23,8 @@
 - {DONE} use get task endpoint in the frontend and create loading component
 - {DONE} use post task endpoint in the frontend
 - {TODO} use udpate task endpoint in the frontend
+        - {DONE} Update an item in the backend after dropping it in a new state
+        - {DONE} Update an item in the backend while typing a new task
 - {TODO} update readme file
 - {TODO} show errors
 not important now:        
