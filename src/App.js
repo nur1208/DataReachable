@@ -7,13 +7,19 @@ import { Landing } from "./pages/Landing/Landing";
 import { Test } from "./components/Test";
 function App() {
   return (
-    <DndProvider backend={Backend}>
-      <Routes>
-        <Route path="/test" element={<Test type="spin" />} />
-        <Route path="/task" element={<TaskManagement />} />
-        <Route path="/" element={<Landing />} />
-      </Routes>
-    </DndProvider>
+    <Routes>
+      <Route path="/test" element={<Test type="spin" />} />
+
+      <Route
+        path="/task"
+        element={
+          <DndProvider backend={Backend}>
+            <TaskManagement />
+          </DndProvider>
+        }
+      />
+      <Route path="/" element={<Landing />} />
+    </Routes>
   );
 }
 

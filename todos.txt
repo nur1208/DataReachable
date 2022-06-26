@@ -30,7 +30,7 @@
 - {DONE} use delete task endpoint in the frontend
 - {DONE} add Notification component and other files from my old project
 - {DONE} Test Notification component in Test component
-- {TODO} show errors
+- {DONE} Show if user is online or offline
 - {TODO} update readme file
 not important now:        
 

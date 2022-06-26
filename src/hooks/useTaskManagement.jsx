@@ -1,23 +1,43 @@
 import { useEffect, useState } from "react";
+import { useNotification } from "../components/Notification";
 import { statuses, STATUSES } from "../data";
 import TaskEndpoints from "../services/Task";
+import colors from "../styles/colors";
+import { useFirstRender } from "./useFirstRender";
 
 export const useTaskManagement = () => {
-  const [tasks, setTasks] = useState([
-    {
-      // Generate Unique ID
-      id: `${Date.now()}${Math.floor(Math.random() * 100)}`,
-      task: "solidity",
-      status: STATUSES.PREPARE_TO_STUDY,
-    },
-  ]);
+  const [tasks, setTasks] = useState([]);
+  const dispatch = useNotification();
 
   const [loading, setLoading] = useState(true);
+  const [isOffline, setIsOffline] = useState(true);
+  // this app is rendering tiwic
+  const isFirstRender = useFirstRender();
   useEffect(() => {
     (async () => {
-      const { data } = await TaskEndpoints.get();
-      setLoading(false);
-      setTasks(data.articles);
+      try {
+        const { data } = await TaskEndpoints.get();
+        setLoading(false);
+        setTasks(data.articles);
+
+        dispatch({
+          type: "success",
+          message: `Autosave Is Active.`,
+          title: "You Are Online",
+          position: "topL",
+          iconColor: colors.green,
+        });
+        setIsOffline(false);
+      } catch (error) {
+        dispatch({
+          type: "error",
+          message: `Please check your internet. Your tasks are not automatically saved`,
+          title: "You Are Offline",
+          position: "topL",
+          iconColor: colors.red,
+        });
+        setLoading(false);
+      }
     })();
   }, []);
 
@@ -70,15 +90,29 @@ export const useTaskManagement = () => {
   };
 
   const addTask = async () => {
-    const newTask = {
-      task: "",
-      status: STATUSES.PREPARE_TO_STUDY,
-    };
-    const {
-      data: { article },
-    } = await TaskEndpoints.post(newTask);
+    if (isOffline) {
+      const article = {
+        // Generate Unique ID
+        id: `${Date.now()}${Math.floor(Math.random() * 100)}`,
+        task: "",
+        status: STATUSES.PREPARE_TO_STUDY,
+      };
+      setTasks((currentTask) => [...currentTask, article]);
+    } else {
+      try {
+        const newTask = {
+          task: "",
+          status: STATUSES.PREPARE_TO_STUDY,
+        };
+        const {
+          data: { article },
+        } = await TaskEndpoints.post(newTask);
 
-    setTasks((currentTask) => [...currentTask, article]);
+        setTasks((currentTask) => [...currentTask, article]);
+      } catch (error) {
+        console.log(error);
+      }
+    }
   };
   return [
     { tasks, loading },
