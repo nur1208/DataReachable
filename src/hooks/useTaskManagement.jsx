@@ -73,9 +73,11 @@ export const useTaskManagement = () => {
       task: "",
       status: STATUSES.PREPARE_TO_STUDY,
     };
-    await TaskEndpoints.post(newTask);
+    const {
+      data: { article },
+    } = await TaskEndpoints.post(newTask);
 
-    setTasks((currentTask) => [...currentTask, newTask]);
+    setTasks((currentTask) => [...currentTask, article]);
   };
   return [
     { tasks, loading },

@@ -3,10 +3,13 @@ import TaskModel from "../model/Task.js";
 export const createTask = async (req, res) => {
   console.log(req.body);
   try {
-    const news = new TaskModel(req.body);
+    const task = new TaskModel(req.body);
 
-    await news.save();
-    res.send("article has been saved.");
+    const newTask = await task.save();
+    res.send({
+      message: "article has been saved.",
+      article: { ...newTask._doc, id: newTask._id },
+    });
   } catch (error) {
     console.error(error);
 
