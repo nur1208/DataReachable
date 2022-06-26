@@ -29,6 +29,7 @@
 - {DONE} create delete task endpoint
 - {DONE} use delete task endpoint in the frontend
 - {DONE} add Notification component and other files from my old project
+- {DONE} Test Notification component in Test component
 - {TODO} show errors
 - {TODO} update readme file
 not important now:        
