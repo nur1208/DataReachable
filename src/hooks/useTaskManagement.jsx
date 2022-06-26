@@ -66,6 +66,7 @@ export const useTaskManagement = () => {
     setTasks((currentTask) =>
       currentTask.filter((x) => x.id !== itemId)
     );
+    TaskEndpoints.delete(itemId);
   };
 
   const addTask = async () => {

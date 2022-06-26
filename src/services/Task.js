@@ -10,5 +10,8 @@ const TaskEndpoints = {
   put(data) {
     return Api().put("/api/v1/tasks", data);
   },
+  delete(id) {
+    return Api().delete(`/api/v1/tasks?id=${id}`);
+  },
 };
 export default TaskEndpoints;
