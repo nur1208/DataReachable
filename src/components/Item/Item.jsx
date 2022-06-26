@@ -3,11 +3,14 @@ import React, {
   useState,
   useRef,
   useEffect,
+  useMemo,
 } from "react";
 import { useDrag, useDrop } from "react-dnd";
 import { STATUSES } from "../../data";
 import { ITEM_TYPE } from "../../data/types";
+import { useFirstRender } from "../../hooks/useFirstRender";
 import { useHover } from "../../hooks/useHover";
+import TaskEndpoints from "../../services/Task";
 import {
   CloseBtnStyeld,
   InputTaskWrapperStyled,
@@ -22,11 +25,13 @@ const Item = ({
   status,
   setCurrentTasksPerStatus,
   deleteTask,
+  isFirstRender,
 }) => {
   const dragRef = useRef(null);
   const [hoverRef, isHoverd] = useHover();
   const [, drop] = useDrop({
     accept: ITEM_TYPE,
+
     hover(item, monitor) {
       if (!dragRef.current) {
         return;
@@ -65,17 +70,34 @@ const Item = ({
       item.index = hoverIndex;
     },
   });
+  const [isTasksUpdated, setIsTasksUpdated] = useState(false);
 
+  const firstRender = useMemo(
+    () => console.log("first Render"),
+    []
+  );
   const [{ isDragging }, drag] = useDrag({
     item: { type: ITEM_TYPE, ...item, index },
     collect: (monitor) => ({
       isDragging: monitor.isDragging(),
     }),
+    end: (item, monitor) => {
+      // console.log({ item });
+      setIsTasksUpdated(true);
+    },
   });
 
   useEffect(() => {
     hoverRef.current = dragRef.current;
   }, [dragRef.current]);
+
+  // useEffect(() => {
+  //   if (!isFirstRender) {
+  //     const { id, status, task } = item;
+  //     console.log({ data: { id, status, task } });
+  //     TaskEndpoints.put({ id, status, task });
+  //   }
+  // }, [item]);
 
   drag(drop(dragRef));
 

@@ -11,6 +11,7 @@ export const useTaskManagement = () => {
       status: STATUSES.PREPARE_TO_STUDY,
     },
   ]);
+
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     (async () => {
@@ -20,6 +21,10 @@ export const useTaskManagement = () => {
       setTasks(data.articles);
     })();
   }, []);
+
+  // useEffect(() => {
+  //   console.log({ tasks });
+  // }, [tasks]);
 
   const onDrop = (item, monitor, status) => {
     const mapping = statuses.find((si) => si.status === status);
@@ -62,20 +67,17 @@ export const useTaskManagement = () => {
     );
   };
 
-  const addTask = () => {
-    setTasks((currentTask) => [
-      ...currentTask,
+  const addTask = async () => {
+    const newTask = {
+      task: "",
+      status: STATUSES.PREPARE_TO_STUDY,
+    };
+    await TaskEndpoints.post(newTask);
 
-      {
-        // Generate Unique ID
-        id: `${Date.now()}${Math.floor(Math.random() * 100)}`,
-        task: "",
-        status: STATUSES.PREPARE_TO_STUDY,
-      },
-    ]);
+    setTasks((currentTask) => [...currentTask, newTask]);
   };
   return [
-    {tasks, loading},
+    { tasks, loading },
     { updateTask, deleteTask, onDrop, moveItem, addTask },
   ];
 };

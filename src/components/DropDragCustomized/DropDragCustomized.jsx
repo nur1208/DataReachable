@@ -13,6 +13,7 @@ import {
   ColHeaderStyeld,
   DropMainWrapperStyeld,
 } from "./DropDragCustomized.styles";
+import TaskEndpoints from "../../services/Task";
 
 export const DropDragCustomized = ({
   status,
@@ -30,6 +31,11 @@ export const DropDragCustomized = ({
     accept: ITEM_TYPE,
     drop: (item, monitor) => {
       onDrop(item, monitor, status.status);
+      const { id } = item;
+      const newStatus = status.status;
+      console.log({ item, data: { id, status: newStatus } });
+      // Update an item in the backend after putting it in a new state
+      TaskEndpoints.put({ id, status: newStatus });
     },
     collect: (monitor) => ({
       isOver: monitor.isOver(),

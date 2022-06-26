@@ -20,8 +20,11 @@
 - {DONE} increase tasks box height if there are more tasks than four.        
 - {DONE} create backend for this project (get task and post task endpoints)
 - {DONE} create update task endpoint
-- {TODO} use get task endpoint in the frontend and create loading component
-- {TODO} use post task endpoint in the frontend
+- {DONE} use get task endpoint in the frontend and create loading component
+- {DONE} use post task endpoint in the frontend
+- {TODO} use udpate task endpoint in the frontend
+- {TODO} update readme file
+- {TODO} show errors
 not important now:        
 
 question:
