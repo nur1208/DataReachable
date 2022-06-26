@@ -30,9 +30,8 @@ const main = async () => {
     // app.use(initialize());
 
     app.get("/", (req, res) => {
-      console.log(req.query.number);
       // something
-      res.send(`Hello World! ${req.query.number}`);
+      res.send(`Hello World!`);
     });
 
     // Routing
