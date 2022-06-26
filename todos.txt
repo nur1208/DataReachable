@@ -33,6 +33,7 @@
 - {DONE} Show if user is online or offline
 - {DONE} update server.js landing endpoint
 - {DONE} update readme file
+- {DONE} set up redux in the frontend
 not important now:        
 
 question:

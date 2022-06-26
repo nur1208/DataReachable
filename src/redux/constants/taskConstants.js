@@ -1,0 +1,7 @@
+export const TASK_GET_LOADING = "TASK_GET_LOADING";
+export const TASK_GET_SUCCESS = "TASK_GET_SUCCESS";
+export const TASK_GET_FAIL = "TASK_GET_FAIL";
+
+export const TASK_ADD_LOADING = "TASK_ADD_LOADING";
+export const TASK_ADD_SUCCESS = "TASK_ADD_SUCCESS";
+export const TASK_ADD_FAIL = "TASK_ADD_FAIL";
