@@ -31,7 +31,8 @@
 - {DONE} add Notification component and other files from my old project
 - {DONE} Test Notification component in Test component
 - {DONE} Show if user is online or offline
-- {TODO} update readme file
+- {DONE} update server.js landing endpoint
+- {DONE} update readme file
 not important now:        
 
 question:
