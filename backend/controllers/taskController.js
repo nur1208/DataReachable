@@ -69,3 +69,24 @@ export const updateTasks = async (req, res) => {
     res.status(500).json({ message: "server error" });
   }
 };
+
+export const deleteTasks = async (req, res) => {
+  console.log(req.query);
+  console.log(req);
+
+  const doc = await TaskModel.findByIdAndDelete(req.query.id);
+
+  if (!doc) {
+    return res.status(404).json({
+      status: "fail",
+      data: null,
+      message: `No document found with '${req.query.id}' ID`,
+    });
+  }
+
+  // 204 means deleted
+  res.status(204).json({
+    status: "success",
+    data: null,
+  });
+};

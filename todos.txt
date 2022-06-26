@@ -26,6 +26,7 @@
         - {DONE} Update an item in the backend after dropping it in a new state
         - {DONE} Update an item in the backend while typing a new task
 - {DONE} fix an error in addTask function. (new created item doesn't' have an id)
+- {TODO} create delete task endpoint
 - {TODO} update readme file
 - {TODO} show errors
 not important now:        

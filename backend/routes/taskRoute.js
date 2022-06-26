@@ -1,6 +1,7 @@
 import express from "express";
 import {
   createTask,
+  deleteTasks,
   getTasks,
   updateTasks,
 } from "../controllers/taskController.js";
@@ -11,5 +12,7 @@ taskRouter
   .route("/")
   .post(createTask)
   .get(getTasks)
-  .put(updateTasks);
+  .put(updateTasks)
+  .delete(deleteTasks);
+
 export default taskRouter;
